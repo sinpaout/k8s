@@ -41,4 +41,5 @@ timezone: "Asia/Tokyo"
 package_upgrade: false
 
 runcmd:
+  # Pickup the hostname changes
   - 'systemctl restart avahi-daemon'

@@ -1,0 +1,11 @@
+#!/usr/bin/env ansible-playbook
+
+- hosts: node2
+  vars:
+    new_pass: 'hypriot'
+  tasks:
+    - name: changing password of pi
+      become: True
+      user:
+        name: "pi"
+        password: "{{ new_pass | password_hash('sha512') }}"
