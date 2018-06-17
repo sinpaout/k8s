@@ -1,0 +1,5 @@
+# changing password
+ansible-playbook playbooks/passwd.yml -e new_pass=pa55w0rd
+
+# fix ipaddress
+ansible-playbook playbooks/fixIP.yml

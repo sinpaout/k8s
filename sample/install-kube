@@ -1,0 +1,28 @@
+#!/bin/sh
+
+curl -sSL get.docker.com | sh && \
+  sudo apt-get install -qy docker-ce=18.04.0~ce~3-0~raspbian \
+  sudo usermod pi -aG docker
+
+# You can check out the packages added to the repo lists by using:
+# apt-cache madison docker-ce
+
+sudo dphys-swapfile swapoff && \
+  sudo dphys-swapfile uninstall && \
+  sudo update-rc.d dphys-swapfile remove
+
+# confirm that swapping disabled
+# sudo swapon --summary
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
+  echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
+  sudo apt-get update -q && \
+  sudo apt-get install -qy kubeadm=1.9.6-00 kubectl=1.9.6-00 kubelet=1.9.6-00 
+
+echo Adding " cgroup_enable=cpuset cgroup_memory=1" to /boot/cmdline.txt
+
+sudo cp /boot/cmdline.txt /boot/cmdline_backup.txt \
+  orig="$(head -n1 /boot/cmdline.txt) cgroup_enable=cpuset cgroup_enable=memory" \
+  echo $orig | sudo tee /boot/cmdline.txt
+
+echo Please reboot

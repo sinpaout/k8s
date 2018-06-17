@@ -1,0 +1,5 @@
+sudo kubeadm join --token 0ce4d3.e89d10ebf9aea088 192.168.11.100:6443 --discovery-token-ca-cert-hash sha256:e394a8ddf05dc51d8fdbcb1b1b5b791500ea93e44d2492e970db232dfe6f90b6
+
+sudo kubeadm init --token-ttl=0 --pod-network-cidr=10.244.0.0/16
+
+kubeadm join --token 727a2d.82cf111384e63977 192.168.11.100:6443 --discovery-token-ca-cert-hash sha256:6372aaffd0ac19b5010004b395706249b94b02cf2add091fbba64609c37837ad
