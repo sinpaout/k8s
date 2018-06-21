@@ -19,11 +19,11 @@ users:
     shell: /bin/bash
     groups: users,docker,video,input
     plain_text_passwd: hypriot
-    lock_passwd: false
+    lock_passwd: true
     ssh_pwauth: false
     chpasswd: { expire: false }
     ssh-authorized-keys:
-      - ssh-rsa AAAAB3NzaC1yc...
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCYyyyocTJjhM/sH63FMoqo8qU9zRI7vLsx3Syh5Tm6zSQtVV2aF0JcHOP02dsXiC0tRkSM8H/Tumlpq0YJhwtOLqlIEDWkwZp978QO3Alg5RK/CuCwrdIPXe6iZXV7fRupZTsxxwu2JUhZCaS7zqH+CP/a7oNBWUGx75GYv5p3z5h57og6ysjRXHFKELh9tc4GI5GUXkeyjd3nF7AmUAxy84r+ForwgkPLtZ8f0pmC6uMU5kLYDP4XU2LpnwruViGUiavPJa7SQJ/EZLN+3X8RHjA7UP7/gH7K4pYhXvq4r9OUeYy3hoKsUoIGMiY6YYLDuW6YR6IuCzRpJvzLX9Th sinpaout@SinMacbook.local
 
 # # Set the locale of the system
 # locale: "en_US.UTF-8"
